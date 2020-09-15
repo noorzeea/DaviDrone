@@ -82,7 +82,7 @@ def calibrate():   #This is the auto calibration procedure of a normal ESC
             pi.set_servo_pulsewidth(mot3, min_value) 
             pi.set_servo_pulsewidth(mot4, min_value) 
             time.sleep(1)
-            print ("See.... uhhhhh")
+            print ("Calibration complete")
             
             
 def control(): 
