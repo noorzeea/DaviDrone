@@ -45,27 +45,25 @@ def land(speed):
 
 
 def arm(): #This is the arming procedure of an ESC 
-    print ("Connect the battery and press Enter")
-    inp = input()    
-    if inp == '':
-        pi.set_servo_pulsewidth(mot1, 0) 
-        pi.set_servo_pulsewidth(mot2, 0) 
-        pi.set_servo_pulsewidth(mot3, 0) 
-        pi.set_servo_pulsewidth(mot4, 0) 
-        time.sleep(1)
 
-        pi.set_servo_pulsewidth(mot1, max_value) 
-        pi.set_servo_pulsewidth(mot2, max_value) 
-        pi.set_servo_pulsewidth(mot3, max_value) 
-        pi.set_servo_pulsewidth(mot4, max_value) 
-        time.sleep(1)
+    pi.set_servo_pulsewidth(mot1, 0) 
+    pi.set_servo_pulsewidth(mot2, 0) 
+    pi.set_servo_pulsewidth(mot3, 0) 
+    pi.set_servo_pulsewidth(mot4, 0) 
+    time.sleep(1)
 
-        pi.set_servo_pulsewidth(mot1, min_value) 
-        pi.set_servo_pulsewidth(mot2, min_value) 
-        pi.set_servo_pulsewidth(mot3, min_value) 
-        pi.set_servo_pulsewidth(mot4, min_value) 
-        time.sleep(1)
-         
+    pi.set_servo_pulsewidth(mot1, max_value) 
+    pi.set_servo_pulsewidth(mot2, max_value) 
+    pi.set_servo_pulsewidth(mot3, max_value) 
+    pi.set_servo_pulsewidth(mot4, max_value) 
+    time.sleep(1)
+
+    pi.set_servo_pulsewidth(mot1, min_value) 
+    pi.set_servo_pulsewidth(mot2, min_value) 
+    pi.set_servo_pulsewidth(mot3, min_value) 
+    pi.set_servo_pulsewidth(mot4, min_value) 
+    time.sleep(1)
+        
         
 def stop(): #This will stop every action your Pi is performing for ESC ofcourse.
     pi.set_servo_pulsewidth(mot1, 0) 
