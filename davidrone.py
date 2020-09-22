@@ -20,8 +20,8 @@ speed = min_value
 
 
 def takeoff(speed):
-    while (speed < max):
-        speed += 100
+    while (speed < 1500):
+        speed += 10
         pi.set_servo_pulsewidth(mot1, speed) 
         pi.set_servo_pulsewidth(mot2, speed) 
         pi.set_servo_pulsewidth(mot3, speed) 
@@ -32,8 +32,8 @@ def takeoff(speed):
     
 
 def land(speed): 
-    while (speed > min):
-        speed -= 100
+    while (speed > min_value):
+        speed -= 10
         pi.set_servo_pulsewidth(mot1, speed) 
         pi.set_servo_pulsewidth(mot2, speed) 
         pi.set_servo_pulsewidth(mot3, speed) 
@@ -42,29 +42,6 @@ def land(speed):
         print (speed)
     return speed
 
-
-
-def arm(): #This is the arming procedure of an ESC 
-
-    pi.set_servo_pulsewidth(mot1, 0) 
-    pi.set_servo_pulsewidth(mot2, 0) 
-    pi.set_servo_pulsewidth(mot3, 0) 
-    pi.set_servo_pulsewidth(mot4, 0) 
-    time.sleep(1)
-
-    pi.set_servo_pulsewidth(mot1, max_value) 
-    pi.set_servo_pulsewidth(mot2, max_value) 
-    pi.set_servo_pulsewidth(mot3, max_value) 
-    pi.set_servo_pulsewidth(mot4, max_value) 
-    time.sleep(1)
-
-    pi.set_servo_pulsewidth(mot1, min_value) 
-    pi.set_servo_pulsewidth(mot2, min_value) 
-    pi.set_servo_pulsewidth(mot3, min_value) 
-    pi.set_servo_pulsewidth(mot4, min_value) 
-    time.sleep(1)
-        
-        
 def stop(): #This will stop every action your Pi is performing for ESC ofcourse.
     pi.set_servo_pulsewidth(mot1, 0) 
     pi.set_servo_pulsewidth(mot2, 0) 
@@ -75,9 +52,9 @@ def stop(): #This will stop every action your Pi is performing for ESC ofcourse.
 
 
 pi = pigpio.pi()
-arm() 
 
-print("Motors armed. Ready to take off!\n")
+
+print("Ready to take off!\n")
 
 command = "start"
 while (command != "shut"):
